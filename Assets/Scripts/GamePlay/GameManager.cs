@@ -6,12 +6,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.Interaction.Toolkit;
 //using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Camera cam;
+    [SerializeField] private ARPlaneManager planeManager;
+    [SerializeField] private Toggle toggle;
 
     private PointManager pointManager;
     private CircleSpawner spawner;
@@ -42,6 +45,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Hide();
+        StartCoroutine(TurnOnPlanes());
     }
 
     private void Update()
@@ -230,6 +234,10 @@ public class GameManager : MonoBehaviour
             return false;
         }
     }
+    public IEnumerator TurnOnPlanes() {
+        yield return new WaitForSeconds(1f);
+        planeManager.enabled = true;
+    }
 
     private void OnDrawGizmos()
     {
@@ -246,6 +254,15 @@ public class GameManager : MonoBehaviour
     private void EnableCell(GameObject cell)
     {
         cell.GetComponent<Tile>().enabled = enabled;
+    }
+
+    public void Toggle() {
+        if (toggle.isOn) {
+            Show();
+        }
+        else {
+            Hide();
+        }
     }
 
     public void Hide()
