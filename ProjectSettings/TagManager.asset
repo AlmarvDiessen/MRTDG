@@ -3,17 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Tower
+  - 
   - Water
   - UI
-  - GridField
-  - Projectile
+  - Spawner Contact
+  - Placeable Surface
   - 
   - 
   - 
@@ -36,7 +35,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - XR Simulation
   - 
   m_SortingLayers:
   - name: Default
