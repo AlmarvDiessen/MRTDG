@@ -110,7 +110,6 @@ public class GameManager : MonoBehaviour
                         EndBuilding();
                         return;
                     }
-                    //TODO: future implementation make turret always look down the lane.
                     //Quaternion forwards = Quaternion.LookRotation(selectedTile.transform.position - cam.transform.position, Vector3.up );
                     GameObject clone = Instantiate(_prefab, selectedTile.transform.position, selectedTile.transform.rotation);
                     selectedTile.isBlocked = true;
@@ -123,6 +122,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+
 
     //Button fuction
     private bool isBuilding = false;

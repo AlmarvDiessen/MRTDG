@@ -18,4 +18,4 @@ MonoBehaviour:
   spawnableInWave: 5
   pointValue: 15
   damageValue: 5
-  moveSpeed: 1
+  moveSpeed: 1.25

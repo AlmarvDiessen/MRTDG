@@ -125,10 +125,10 @@ MonoBehaviour:
   m_Name: ARSessionFeature Android
   m_EditorClassIdentifier: 
   m_enabled: 1
-  nameUi: 'AR Foundation: Meta Quest Session'
+  nameUi: 'Meta Quest: AR Session'
   version: 0.1.0
   featureIdInternal: com.unity.openxr.feature.arfoundation-meta-session
-  openxrExtensionStrings: 'XR_FB_scene_capture '
+  openxrExtensionStrings: XR_FB_scene_capture
   company: Unity Technologies
   priority: 0
   required: 0
@@ -375,6 +375,7 @@ MonoBehaviour:
   - {fileID: -5611916350011621528}
   m_renderMode: 0
   m_depthSubmissionMode: 0
+  m_symmetricProjection: 0
 --- !u!114 &-6798200538286403746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +884,7 @@ MonoBehaviour:
   features: []
   m_renderMode: 1
   m_depthSubmissionMode: 0
+  m_symmetricProjection: 0
 --- !u!114 &-1190772441457569148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,6 +1030,7 @@ MonoBehaviour:
   - {fileID: 6612400554289680647}
   - {fileID: -8470163300371861798}
   - {fileID: 7558681416710770871}
+  - {fileID: 2084297592703202497}
   - {fileID: 1439519674761587512}
   - {fileID: 3554264124859437666}
   - {fileID: -3340658034481943565}
@@ -1049,6 +1052,7 @@ MonoBehaviour:
   - {fileID: -7581625304019661375}
   m_renderMode: 1
   m_depthSubmissionMode: 2
+  m_symmetricProjection: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,6 +1290,26 @@ MonoBehaviour:
   openxrExtensionStrings: XR_MSFT_holographic_remoting XR_MSFT_holographic_remoting_speech
   company: Microsoft
   priority: -100
+  required: 0
+--- !u!114 &2084297592703202497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfde4033cbc8045a69c465b226fd4284, type: 3}
+  m_Name: DisplayUtilitiesFeature Android
+  m_EditorClassIdentifier: 
+  m_enabled: 0
+  nameUi: 'Meta Quest: Display Utilities'
+  version: 0.1.0
+  featureIdInternal: com.unity.openxr.feature.meta-display-utilities
+  openxrExtensionStrings: XR_FB_display_refresh_rate
+  company: Unity Technologies
+  priority: 0
   required: 0
 --- !u!114 &2163979698669853125
 MonoBehaviour:
@@ -1581,6 +1605,7 @@ MonoBehaviour:
   - {fileID: -3032281408871642287}
   m_renderMode: 1
   m_depthSubmissionMode: 0
+  m_symmetricProjection: 0
 --- !u!114 &4361237768346609889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1855,7 +1880,7 @@ MonoBehaviour:
   m_Name: ARRaycastFeature Android
   m_EditorClassIdentifier: 
   m_enabled: 1
-  nameUi: 'AR Foundation: Meta Quest Raycast'
+  nameUi: 'Meta Quest: AR Raycasts'
   version: 0.1.0
   featureIdInternal: com.unity.openxr.feature.arfoundation-meta-raycast
   openxrExtensionStrings: 
@@ -1913,6 +1938,10 @@ MonoBehaviour:
     manifestName: cambria
     enabled: 1
   forceRemoveInternetPermission: 1
+  symmetricProjection: 0
+  systemSplashScreen: {fileID: 0}
+  lateLatchingMode: 0
+  lateLatchingDebug: 0
 --- !u!114 &7558681416710770871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1946,7 +1975,7 @@ MonoBehaviour:
   m_Name: ARCameraFeature Android
   m_EditorClassIdentifier: 
   m_enabled: 1
-  nameUi: 'AR Foundation: Meta Quest Camera'
+  nameUi: 'Meta Quest: AR Camera (Passthrough)'
   version: 0.1.0
   featureIdInternal: com.unity.openxr.feature.arfoundation-meta-camera
   openxrExtensionStrings: XR_FB_passthrough XR_FB_composition_layer_alpha_blend
@@ -1991,11 +2020,11 @@ MonoBehaviour:
   m_Name: ARPlaneFeature Android
   m_EditorClassIdentifier: 
   m_enabled: 1
-  nameUi: 'AR Foundation: Meta Quest Plane'
+  nameUi: 'Meta Quest: AR Plane Detection'
   version: 0.1.0
   featureIdInternal: com.unity.openxr.feature.arfoundation-meta-plane
-  openxrExtensionStrings: 'XR_FB_spatial_entity XR_FB_spatial_entity_query XR_FB_spatial_entity_storage
-    XR_FB_scene '
+  openxrExtensionStrings: XR_FB_spatial_entity XR_FB_spatial_entity_query XR_FB_spatial_entity_storage
+    XR_FB_scene
   company: Unity Technologies
   priority: 0
   required: 0
@@ -2072,10 +2101,10 @@ MonoBehaviour:
   m_Name: ARAnchorFeature Android
   m_EditorClassIdentifier: 
   m_enabled: 1
-  nameUi: 'AR Foundation: Meta Quest Anchor'
+  nameUi: 'Meta Quest: AR Anchors'
   version: 0.1.0
   featureIdInternal: com.unity.openxr.feature.arfoundation-meta-anchor
-  openxrExtensionStrings: 'XR_FB_spatial_entity XR_FB_spatial_entity_query XR_FB_spatial_entity_storage '
+  openxrExtensionStrings: XR_FB_spatial_entity
   company: Unity Technologies
   priority: 0
   required: 0
