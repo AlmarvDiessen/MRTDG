@@ -24,7 +24,6 @@ public class BulletParticle : MonoBehaviour
 
         if (other.TryGetComponent(out Health health)) {
             health.TakeDamage(damage);
-            Debug.Log(health.gameObject.name);
             particleSystem.Stop();
             Destroy(rb.gameObject);
         }
