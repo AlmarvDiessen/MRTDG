@@ -673,6 +673,10 @@ PrefabInstance:
     - target: {fileID: 2314765729894503799, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2065764348}
+    - target: {fileID: 2314765729894503799, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Toggle
       objectReference: {fileID: 0}
     - target: {fileID: 2470406620377715314, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -700,11 +704,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3496684499337576663, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.1522
       objectReference: {fileID: 0}
     - target: {fileID: 3496684499337576663, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1586
       objectReference: {fileID: 0}
     - target: {fileID: 3496684499337576663, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -769,6 +773,10 @@ PrefabInstance:
     - target: {fileID: 7536015808348871328, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2065764348}
+    - target: {fileID: 7536015808348871328, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartBulding
       objectReference: {fileID: 0}
     - target: {fileID: 8665628335537419627, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: m_Name

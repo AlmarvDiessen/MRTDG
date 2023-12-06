@@ -123,6 +123,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void SpawnPrefab() {
+
+    }
 
 
     //Button fuction
