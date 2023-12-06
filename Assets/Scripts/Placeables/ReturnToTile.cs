@@ -24,28 +24,34 @@ public class ReturnToTile : MonoBehaviour
 
 
     private void OnRelease(SelectExitEventArgs args) {
+        Hide();
         if (!IsInNewSlot()) {
             transform.position = OriginalPosition;
+           
         }
 
-        if(shakeObject != null) {
+        if (shakeObject != null) {
             shakeObject.enabled = true;
         }
 
     }
 
     private void OnGrab(SelectEnterEventArgs args) {
-        if(shakeObject != null) {
+        Show();
+        if (shakeObject != null) {
             shakeObject.enabled = false;
         }
     }
+
 
     private bool IsInNewSlot() {
         float distanceThreshold = 0.1f; // Adjust this threshold based on your needs
 
         // Check if the distance to the new slot position is within the threshold
         float distance = Vector3.Distance(transform.position, NewSlotPosition);
+        shakeObject.OriginalPosition = NewSlotPosition;
         originalPosition = newSlotPosition;
+
         shakeObject.enabled = true;
         return distance < distanceThreshold;
     }
@@ -54,5 +60,11 @@ public class ReturnToTile : MonoBehaviour
     private bool IsBeingHeld() {
         // Check if the object is currently being grabbed
         return grabInteractable.isSelected;
+    }
+    public void Hide() {
+        Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("GridField"));
+    }
+    public void Show() {
+        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("GridField");
     }
 }

@@ -26,7 +26,6 @@ public class EnemyObstacleCheck : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, raycastDistance)) {
             // An obstacle is detected
-            //Debug.Log("There is an obstacle in front the enemy.");
 
             health = hit.transform.GetComponent<Health>();
             shakeTargetObject = hit.transform.GetComponent<ShakeObject>();

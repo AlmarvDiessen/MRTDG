@@ -9,9 +9,10 @@ public class ShakeObject : MonoBehaviour
     private Vector3 originalPosition;
     private bool isShaking = false;
 
+    public Vector3 OriginalPosition { get => originalPosition; set => originalPosition = value; }
 
     private void Awake() {
-        originalPosition = transform.position;
+        OriginalPosition = transform.position;
         
     }
     private void Start()
@@ -34,13 +35,13 @@ public class ShakeObject : MonoBehaviour
         while (elapsedTime < shakeDuration)
         {
             Vector3 randomOffset = Random.insideUnitSphere * shakeMagnitude;
-            transform.position = originalPosition + randomOffset;
+            transform.position = OriginalPosition + randomOffset;
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        transform.position = originalPosition;
+        transform.position = OriginalPosition;
         isShaking = false;
     }
 }

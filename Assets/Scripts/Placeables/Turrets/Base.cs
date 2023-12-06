@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +11,8 @@ public class Base : Entity
     private int healthPoints = 10;
     [SerializeField] private GameObject gameOverButtons;
     [SerializeField] private GameObject playButtons;
-    [SerializeField] private Text healthText;
+    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Image healthBar;
 
     private void Awake() {
         base.Awake();
@@ -18,14 +21,15 @@ public class Base : Entity
     protected override void Start() {
         base.Start();
         healthComponent.Initialize(20, 20);
-        healthText.text = "Health: " + healthComponent.HealthValue.ToString();
+        //healthText.text = "Health: " + healthComponent.HealthValue.ToString();
     }
 
 
 
     protected override void HandleHealthChange(int currentHealth, int maxHealth) {
         base.HandleHealthChange(currentHealth, maxHealth);
-        healthText.text = "Health: " + healthComponent.HealthValue.ToString();
+        //healthText.text = "Health: " + healthComponent.HealthValue.ToString();
+        healthBar.fillAmount = Mathf.Clamp((float)healthComponent.HealthValue / (float)healthComponent.MaxHealth,0,1);
     }
 
     protected override void Die() {

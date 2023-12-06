@@ -89,6 +89,9 @@ public class GameManager : MonoBehaviour
         #endregion
 
         if (isBuilding) {
+            //remove layermask
+            rightHand.raycastMask &= ~(1 << LayerMask.NameToLayer("Default"));
+            leftHand.raycastMask &= ~(1 << LayerMask.NameToLayer("Default"));
             Show();
             Tile selectedTile;
             bool tileSelected = CheckTileSelection(out selectedTile);
@@ -102,7 +105,7 @@ public class GameManager : MonoBehaviour
                 //ColorSurroundingCells(selectedTile);
 
                 //text = tileSelected.ToString() + " Tile name: " + selectedTile.name;
-                if (tileSelected && interactable.isSelected || Input.GetMouseButtonDown(0)) {
+                if (tileSelected && interactable.isSelected && !selectedTile.isBlocked|| Input.GetMouseButtonDown(0)) {
 
                     _prefabBp.SetActive(false);
                     if (!pointManager.DeductPoinstIfSufficient(50)) {
@@ -113,11 +116,11 @@ public class GameManager : MonoBehaviour
                     //Quaternion forwards = Quaternion.LookRotation(selectedTile.transform.position - cam.transform.position, Vector3.up );
                     GameObject clone = Instantiate(_prefab, selectedTile.transform.position, selectedTile.transform.rotation);
                     selectedTile.isBlocked = true;
+                    EndBuilding();
                     //DisableCell(selectedTile);
                     //debugText.text = selectedTile.name;
                     // DisableSurroundingCells(outerCells, normalMat);
                     // DisableSurroundingCells(adjecentcells, blockedMat, false, true);
-                    EndBuilding();
                 }
             }
         }
@@ -263,6 +266,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void EndBuilding() {
+        //add layer back
+        rightHand.raycastMask |= 1 << LayerMask.NameToLayer("Default");
+        leftHand.raycastMask |= 1 << LayerMask.NameToLayer("Default");
         isBuilding = false;
         Hide();
     }

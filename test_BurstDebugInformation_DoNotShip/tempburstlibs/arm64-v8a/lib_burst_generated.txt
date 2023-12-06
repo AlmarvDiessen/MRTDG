@@ -63,7 +63,7 @@ Library: C:\Users\Intern\Documents\GitHub\mr-example-meta-openxr\Temp\BurstOutpu
 --assembly-defines=UnityEngine;
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\Intern\Documents\GitHub\mr-example-meta-openxr\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.8f1/Editor/Data/PlaybackEngines/AndroidPlayer
+--key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer
 --decode-folder=C:\Users\Intern\Documents\GitHub\mr-example-meta-openxr\Library\Burst
 --output=C:\Users\Intern\Documents\GitHub\mr-example-meta-openxr\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
@@ -192,7 +192,7 @@ Library: C:\Users\Intern\Documents\GitHub\mr-example-meta-openxr\Temp\BurstOutpu
 --assembly-defines=UnityEngine;
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\Intern\Documents\GitHub\mr-example-meta-openxr\Temp\Burst
---key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.8f1/Editor/Data/PlaybackEngines/AndroidPlayer
+--key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.14f1/Editor/Data/PlaybackEngines/AndroidPlayer
 --decode-folder=C:\Users\Intern\Documents\GitHub\mr-example-meta-openxr\Library\Burst
 --output=C:\Users\Intern\Documents\GitHub\mr-example-meta-openxr\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/

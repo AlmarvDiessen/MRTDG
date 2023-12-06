@@ -42,6 +42,7 @@ public class CircleSpawner : MonoBehaviour {
         waveSize = initialWaveSize;
         //buildButton.SetActive(false);
         bounds = spawnGround.GetComponent<BoxCollider>().bounds;
+        startWaveButton.SetActive(false);
     }
 
     public void StartGame()
@@ -51,7 +52,9 @@ public class CircleSpawner : MonoBehaviour {
     }
 
     public void Resume() {
+
         startWaveButton.SetActive(false);
+        StartCoroutine(CountdownCoroutine());
         isPaused = false;
     }
 
@@ -76,7 +79,7 @@ public class CircleSpawner : MonoBehaviour {
                     //float x = randomRadius * Mathf.Cos(randomAngle * Mathf.Deg2Rad);
                     //float y = randomRadius * Mathf.Sin(randomAngle * Mathf.Deg2Rad); 
 
-   
+
 
                     float x = Random.Range(bounds.min.x, bounds.max.x);
                     float z = Random.Range(bounds.min.z, bounds.max.z);
@@ -87,9 +90,9 @@ public class CircleSpawner : MonoBehaviour {
                         GameObject enemyPrefab = spawnInfo.enemyType.Model;
                         GameObject spawnEffect = spawnInfo.enemyType.FX;
                         Quaternion targetRotation = Quaternion.LookRotation(attackPoint.transform.position - transform.position, Vector3.up);
-                        GameObject spawnedFX = Instantiate(spawnEffect, SpawnPosition() + new Vector3(0,0.2f,0), targetRotation);
+                        GameObject spawnedFX = Instantiate(spawnEffect, SpawnPosition() + new Vector3(0, 0.2f, 0), targetRotation);
                         yield return new WaitForSeconds(spawnedFX.GetComponent<ParticleSystem>().main.duration);
-                        GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnedFX.transform.position - new Vector3(0,0.2f,0), targetRotation);
+                        GameObject spawnedEnemy = Instantiate(enemyPrefab, spawnedFX.transform.position - new Vector3(0, 0.2f, 0), targetRotation);
                         spawnedEnemy.transform.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
                         spawnedEnemy = LoadData(spawnedEnemy, spawnInfo);
                         spawnedEnemies.Add(spawnedEnemy);
@@ -114,12 +117,19 @@ public class CircleSpawner : MonoBehaviour {
                 int oldEnemyCount = info.enemyCount;
                 info.enemyCount = Mathf.RoundToInt(info.enemyCount * waveSizeMultiplier);
                 if (oldEnemyCount == info.enemyCount) {
-                    if(currentWave >= info.enemyType.SpawnableInWave)
-                    info.enemyCount++;
+                    if (currentWave >= info.enemyType.SpawnableInWave)
+                        info.enemyCount++;
                 }
                 spawnedEnemies.Clear();
             }
         }
+    }
+
+    IEnumerator CountdownCoroutine() {
+        yield return new WaitForSeconds(30f); // Wait for 30 seconds
+
+        // After 30 seconds, set isPaused to false
+        isPaused = false;
     }
 
     private Vector3 SpawnPosition() {

@@ -10,6 +10,7 @@ public class Tower : Entity
     public GameManager gameManager;
 
     public LayerMask IgnoreMe;
+    [Tooltip("higher means faster")]
     public float fireRate = 5f;
     private float fireCooldown = 0.0f;
     [SerializeField] private GameObject model;
