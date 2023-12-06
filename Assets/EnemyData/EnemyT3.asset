@@ -17,5 +17,5 @@ MonoBehaviour:
   health: 8
   spawnableInWave: 5
   pointValue: 15
-  damageValue: 1
-  moveSpeed: 1
+  damageValue: 5
+  moveSpeed: 1.25

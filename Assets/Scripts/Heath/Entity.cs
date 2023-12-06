@@ -1,7 +1,7 @@
 using Assets.Scripts;
 using UnityEngine;
 
-public class Entity : MonoBehaviour, Itransformable {
+public class Entity : MonoBehaviour {
     [SerializeField] protected Health healthComponent;
     [SerializeField] private PointManager pointManager;
     [SerializeField] protected int pointAmount;
@@ -30,7 +30,5 @@ public class Entity : MonoBehaviour, Itransformable {
     protected virtual void Die() { 
         
     }
-    public Transform GetTransfrom() {
-        return transform;
-    }
+
 }

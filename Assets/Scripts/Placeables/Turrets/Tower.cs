@@ -44,7 +44,7 @@ public class Tower : Entity
         healthComponent.Initialize(5, 5);
 
         occupiedTile = GetCellAtPosition(transform.position).GetComponent<Tile>();
-        occupiedTile.enabled = false;
+        occupiedTile.isBlocked = true;
     }
 
 
@@ -124,7 +124,7 @@ public class Tower : Entity
     }
 
     protected override void Die() {
-        occupiedTile.enabled = true;
+        occupiedTile.isBlocked = false;
         occupiedTile = null;
         Destroy(gameObject);
     }
