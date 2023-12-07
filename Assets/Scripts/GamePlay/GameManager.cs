@@ -26,13 +26,12 @@ public class GameManager : MonoBehaviour
 
     UnityEngine.XR.InputDevice inputDevice;
 
+    private Hand hand;
     [SerializeField] private XRRayInteractor leftHand;
     [SerializeField] private XRRayInteractor rightHand;
-    private Hand hand;
     [SerializeField] private GameObject _prefab;
-    [SerializeField] private GameObject _prefabBp;
-    [SerializeField] private GameObject _prefabWall;
-    [SerializeField] private GameObject _prefabBpWall;
+    [SerializeField] private GameObject _prefabBp = null;
+    [SerializeField] private int prefabCost;
 
     //[SerializeField] private GameObject currentCell;
     //[SerializeField] private GameObject previousCell;
@@ -40,7 +39,9 @@ public class GameManager : MonoBehaviour
     //[SerializeField] private Material previewMat;
     //[SerializeField] private Material normalMat;
     //[SerializeField] private Material blockedMat;
-
+    public GameObject Prefab { get => _prefab; set => _prefab = value; }
+    public GameObject PrefabBp { get => _prefabBp; set => _prefabBp = value; }
+    public int PrefabCost { get => prefabCost; set => prefabCost = value; }
 
 
     //[SerializeField] private Text debugText;
@@ -98,23 +99,24 @@ public class GameManager : MonoBehaviour
             if (selectedTile != null) {
                 Vector3 offset = new Vector3(0, 0.17f, 0);
                 XRSimpleInteractable interactable = selectedTile.GetComponent<XRSimpleInteractable>();
-                _prefabBp.SetActive(true);
+
                 Vector3 intersection = selectedTile.transform.position + offset;
-                _prefabBp.transform.position = intersection;
-                _prefabBp.transform.rotation = selectedTile.transform.rotation;
+                PrefabBp.transform.position = intersection;
+                PrefabBp.transform.rotation = selectedTile.transform.rotation;
                 //ColorSurroundingCells(selectedTile);
 
                 //text = tileSelected.ToString() + " Tile name: " + selectedTile.name;
-                if (tileSelected && interactable.isSelected && !selectedTile.isBlocked|| Input.GetMouseButtonDown(0)) {
+                if (tileSelected && interactable.isSelected && !selectedTile.isBlocked || Input.GetMouseButtonDown(0)) {
 
-                    _prefabBp.SetActive(false);
-                    if (!pointManager.DeductPoinstIfSufficient(50)) {
+                    DestroyImmediate(PrefabBp.gameObject);
+                    //TODO set dynamic points based on prefab
+                    if (!pointManager.DeductPoinstIfSufficient(PrefabCost)) {
                         //RevertState(adjecentcells);
                         EndBuilding();
                         return;
                     }
                     //Quaternion forwards = Quaternion.LookRotation(selectedTile.transform.position - cam.transform.position, Vector3.up );
-                    GameObject clone = Instantiate(_prefab, selectedTile.transform.position, selectedTile.transform.rotation);
+                    GameObject clone = Instantiate(Prefab, selectedTile.transform.position, selectedTile.transform.rotation);
                     selectedTile.isBlocked = true;
                     EndBuilding();
                     //DisableCell(selectedTile);
@@ -133,8 +135,12 @@ public class GameManager : MonoBehaviour
 
     //Button fuction
     private bool isBuilding = false;
+
+
+
     public void StartBulding() {
         Show();
+        PrefabBp = Instantiate(PrefabBp);
         isBuilding = true;
     }
 
@@ -150,12 +156,11 @@ public class GameManager : MonoBehaviour
                 return hit.collider.gameObject;
             }
             else {
-                Debug.Log("Selected a tile outside of the range.");
                 return null; // Return null to indicate tile selection outside of the range
             }
         }
         else {
-            Debug.Log("Clicked on something other than a tile:" + hit.collider.name);
+            //Debug.Log("Clicked on something other than a tile:" + hit.collider.name);
             return null; // Return null for non-tile objects
         }
     }

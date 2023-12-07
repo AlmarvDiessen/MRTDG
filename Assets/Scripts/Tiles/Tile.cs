@@ -20,28 +20,38 @@ public class Tile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         Debug.Log("Entered");
-        IsBlocked = true;
 
         if (other != null) {
-            rb = other.GetComponent<Rigidbody>();
-            ReturnToTile returnToTile = other.GetComponent<ReturnToTile>();
-            returnToTile.NewSlotPosition = transform.position;
-            if (other.GetComponent<Tower>() != null) {
-                XRGrabInteractable interactable = other.GetComponent<XRGrabInteractable>();
+            XRGrabInteractable interactable = other.GetComponent<XRGrabInteractable>();
 
-                // Check if the object is being grabbed
-                if (interactable.isSelected) {
-                    // If grabbed, release it from the old slot
-                    XRBaseInteractor interactor = interactable.selectingInteractor;
+            if (interactable != null) {
+                // Check if the slot is already occupied by an interactable object
+                XRGrabInteractable existingInteractable = other.GetComponent<XRGrabInteractable>();
 
-                    // Simulate select exit from the old slot using the interaction manager
-                    interactable.interactionManager.SelectExit(interactable.interactorsSelecting.First(), interactable);
+                if (IsBlocked) {
+                    // If the slot is occupied, return the grabbed object to its old position
+                    ReturnObjectToOriginalPosition(existingInteractable);
                 }
-
-                // Move the object to the new slot
-                other.gameObject.transform.position = transform.position;
+                else {
+                    // If the slot is empty, proceed to move the object to the new slot
+                    MoveObjectToNewSlot(interactable);
+                }
             }
         }
+    }
+
+    private void ReturnObjectToOriginalPosition(XRGrabInteractable interactable) {
+        // Move the grabbed object back to its original position
+        interactable.transform.position = interactable.GetComponent<ReturnToTile>().OriginalPosition;
+        interactable.interactionManager.SelectExit(interactable.interactorsSelecting.FirstOrDefault(), interactable);
+    }
+
+    private void MoveObjectToNewSlot(XRGrabInteractable interactable) {
+        // Move the object to the new slot
+        Debug.Log(gameObject.name + "new slot");
+        interactable.transform.position = gameObject.transform.position;
+        interactable.interactionManager.SelectExit(interactable.interactorsSelecting.FirstOrDefault(), interactable);
+        IsBlocked = true;
     }
 
 

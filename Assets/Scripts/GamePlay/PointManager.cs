@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class PointManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public delegate void PointChangeHandler(int amount);
+    public event PointChangeHandler PointChange;
 
     public int points = 250;
     [SerializeField] private TextMeshProUGUI pointsText;
@@ -26,6 +27,7 @@ public class PointManager : MonoBehaviour
     }
 
     public bool DeductPoinstIfSufficient(int amount) {
+
         if (Points >= amount) {
             Points -= amount;
             pointsText.text = "Points: " + Points.ToString();

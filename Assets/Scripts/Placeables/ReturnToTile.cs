@@ -6,19 +6,19 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ReturnToTile : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable;
-    private Vector3 originalPosition;
-    private Vector3 newSlotPosition; // Assuming you have this defined somewhere
+    public Vector3 originalPosition;
+    public Vector3 newSlotPosition; // Assuming you have this defined somewhere
     private ShakeObject shakeObject;
     public Vector3 NewSlotPosition { get => newSlotPosition; set => newSlotPosition = value; }
     public Vector3 OriginalPosition { get => originalPosition; set => originalPosition = value; }
 
     private void Start() {
         grabInteractable = GetComponent<XRGrabInteractable>();
-        OriginalPosition = transform.position;
         grabInteractable.selectExited.AddListener(OnRelease);
         grabInteractable.selectEntered.AddListener(OnGrab);
 
         shakeObject = GetComponent<ShakeObject>();
+        OriginalPosition = transform.position;
     }
 
 
@@ -27,7 +27,7 @@ public class ReturnToTile : MonoBehaviour
         Hide();
         if (!IsInNewSlot()) {
             transform.position = OriginalPosition;
-           
+
         }
 
         if (shakeObject != null) {
@@ -50,7 +50,6 @@ public class ReturnToTile : MonoBehaviour
         // Check if the distance to the new slot position is within the threshold
         float distance = Vector3.Distance(transform.position, NewSlotPosition);
         shakeObject.OriginalPosition = NewSlotPosition;
-        originalPosition = newSlotPosition;
 
         shakeObject.enabled = true;
         return distance < distanceThreshold;
