@@ -395,7 +395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2397425259952709510, guid: 8a3826b29567e6044a95e79d38cce36c, type: 3}
       propertyPath: m_text
-      value: Place sniper Turret
+      value: Place Sniper Turret
       objectReference: {fileID: 0}
     - target: {fileID: 3199508834110206841, guid: 8a3826b29567e6044a95e79d38cce36c, type: 3}
       propertyPath: m_text
@@ -760,7 +760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3199508834110206841, guid: 8a3826b29567e6044a95e79d38cce36c, type: 3}
       propertyPath: m_text
-      value: Build
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 7753147258609537286, guid: 8a3826b29567e6044a95e79d38cce36c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1485,6 +1485,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1111798803516269212, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111798803516269212, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111798803516269212, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.69411767
+      objectReference: {fileID: 0}
     - target: {fileID: 2314765729894503799, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1520,6 +1532,12 @@ PrefabInstance:
     - target: {fileID: 2470406620377715317, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2470406621645001760, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
+      propertyPath: m_text
+      value: 'Place Turret
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 3496684499337576663, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: m_RootOrder
@@ -1571,6 +1589,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5944661692465510083, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6360256744312517522, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6668350371054266906, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7103561926785991031, guid: 5a3eb31ffdc14184b9800c9efef419e8, type: 3}
