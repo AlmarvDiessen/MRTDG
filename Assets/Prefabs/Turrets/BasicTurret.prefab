@@ -5307,7 +5307,6 @@ MonoBehaviour:
   healthComponent: {fileID: 0}
   pointManager: {fileID: 0}
   pointAmount: 50
-  gameManager: {fileID: 0}
   IgnoreMe:
     serializedVersion: 2
     m_Bits: 9
@@ -5317,6 +5316,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 4612136711094784087}
   particleSystem: {fileID: 0}
   occupiedTile: {fileID: 0}
+  occupier: {fileID: 0}
 --- !u!65 &4808743431540806560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5567,6 +5567,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
   newSlotPosition: {x: 0, y: 0, z: 0}
+  IgnoreMe:
+    serializedVersion: 2
+    m_Bits: 9
 --- !u!114 &8582858291634098056
 MonoBehaviour:
   m_ObjectHideFlags: 0
