@@ -79,10 +79,9 @@ MonoBehaviour:
   healthComponent: {fileID: 0}
   pointManager: {fileID: 0}
   pointAmount: 75
-  gameManager: {fileID: 0}
   IgnoreMe:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   fireRate: 0.5
   projectilePrefab: {fileID: 5560686538701241314, guid: 2efbbdff9d5b5e14983dfd8cc50ede91, type: 3}
   pivot: {fileID: 5236425496565519251}
@@ -337,6 +336,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece8b6106f1ab8945b13cf370970ce3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalPosition: {x: 0, y: 0, z: 0}
+  newSlotPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &-8629079964990228196
 MonoBehaviour:
   m_ObjectHideFlags: 0

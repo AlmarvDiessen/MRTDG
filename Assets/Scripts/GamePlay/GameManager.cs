@@ -190,7 +190,6 @@ public class GameManager : MonoBehaviour
                 }
 
                 if (tileComponent != null && tileComponent.enabled == true) {
-                    Debug.Log("Selected a tile within the range.");
                     selectedTile = tileComponent;
                     return true; // Return true for tile selection within the range
                 }
@@ -210,12 +209,10 @@ public class GameManager : MonoBehaviour
                 }
 
                 if (tileComponent != null && tileComponent.enabled == true) {
-                    Debug.Log("Selected a tile within the range.");
                     selectedTile = tileComponent;
                     return true; // Return true for tile selection within the range
                 }
                 else {
-                    Debug.Log("Selected a tile outside of the range.");
                     return false; // Return false to indicate tile selection outside of the range
                 }
             }

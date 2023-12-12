@@ -5,14 +5,14 @@ using UnityEngine;
 public class SniperTower : Tower
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        healthComponent.Initialize(5, 5);
+    protected override void Start() {
+        base.Start();
+        healthComponent.Initialize(4, 4);
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-       base.Update();
+        base.Update();
     }
 }

@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class Tower : Entity
 {
-    public GameManager gameManager;
     public LayerMask IgnoreMe;
 
     [Tooltip("higher means faster")]
@@ -19,16 +18,19 @@ public class Tower : Entity
     [SerializeField] private Transform shootingPoint;
     [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private Tile occupiedTile;
+    [SerializeField] private ReturnToTile occupier;
     private Animator animation;
 
 
     protected override void Start() {
         base.Start();
         animation = gameObject.GetComponent<Animator>();
-        //TODO set dynamic version for 
-        healthComponent.Initialize(5, 5);
-
+        occupier = gameObject.GetComponent<ReturnToTile>();
         occupiedTile = GetCellAtPosition(transform.position).GetComponent<Tile>();
+
+        healthComponent.Initialize(5, 5);
+        occupier.OriginalPosition = GetCellAtPosition(transform.position).transform.position;
+        occupier.CurrentTile = occupiedTile.gameObject;
         occupiedTile.IsBlocked = true;
     }
 
