@@ -8,16 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 55daccc09a3b69647bbab145b54a3ab3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MRMainMenu.unity
     guid: 58e2b062c59cdee438a1f623bf8dd752
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TutorialScene.unity
     guid: d5d77f2fcefb4bd40b8619ddfb5acd4e
   - enabled: 1
     path: Assets/Scenes/MRGameScene.unity
     guid: 4595b0792b31ecc48bdf116c5356e85b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MRGameover.unity
     guid: d506b2f464892a54080884af355bc389
   m_configObjects:

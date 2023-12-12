@@ -88,6 +88,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 7886509312734017764}
   particleSystem: {fileID: 0}
   occupiedTile: {fileID: 0}
+  occupier: {fileID: 0}
 --- !u!114 &5562720226107025831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
   m_Colliders:
-  - {fileID: 4808743431540806560, guid: eabae392a16fd8d4dba0df18a0530f64, type: 3}
+  - {fileID: -3672621035980811188}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -338,6 +339,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
   newSlotPosition: {x: 0, y: 0, z: 0}
+  currentTile: {fileID: 0}
+  IgnoreMe:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &-8629079964990228196
 MonoBehaviour:
   m_ObjectHideFlags: 0

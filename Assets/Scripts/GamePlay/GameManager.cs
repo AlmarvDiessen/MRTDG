@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private XRRayInteractor rightHand;
     [SerializeField] private GameObject _prefab;
     [SerializeField] private GameObject _prefabBp = null;
+    [SerializeField] private GameObject _prefabBpHolder = null;
     [SerializeField] private int prefabCost;
 
     //[SerializeField] private GameObject currentCell;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
     public GameObject Prefab { get => _prefab; set => _prefab = value; }
     public GameObject PrefabBp { get => _prefabBp; set => _prefabBp = value; }
     public int PrefabCost { get => prefabCost; set => prefabCost = value; }
+    public GameObject PrefabBpHolder { get => _prefabBpHolder; set => _prefabBpHolder = value; }
 
 
     //[SerializeField] private Text debugText;
@@ -101,15 +103,15 @@ public class GameManager : MonoBehaviour
                 XRSimpleInteractable interactable = selectedTile.GetComponent<XRSimpleInteractable>();
 
                 Vector3 intersection = selectedTile.transform.position + offset;
-                PrefabBp.transform.position = intersection;
-                PrefabBp.transform.rotation = selectedTile.transform.rotation;
+                PrefabBpHolder.transform.position = intersection;
+                PrefabBpHolder.transform.rotation = selectedTile.transform.rotation;
                 //ColorSurroundingCells(selectedTile);
 
                 //text = tileSelected.ToString() + " Tile name: " + selectedTile.name;
                 if (tileSelected && interactable.isSelected && !selectedTile.isBlocked || Input.GetMouseButtonDown(0)) {
 
-                    DestroyImmediate(PrefabBp.gameObject);
                     //TODO set dynamic points based on prefab
+                    Destroy(PrefabBpHolder);
                     if (!pointManager.DeductPoinstIfSufficient(PrefabCost)) {
                         //RevertState(adjecentcells);
                         EndBuilding();
@@ -140,7 +142,10 @@ public class GameManager : MonoBehaviour
 
     public void StartBulding() {
         Show();
-        PrefabBp = Instantiate(PrefabBp);
+        if (PrefabBpHolder != null || PrefabBp != PrefabBpHolder) {
+            Destroy(PrefabBpHolder);
+            PrefabBpHolder = Instantiate(PrefabBp);
+        }
         isBuilding = true;
     }
 

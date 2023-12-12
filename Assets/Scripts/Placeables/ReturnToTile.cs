@@ -71,11 +71,6 @@ public class ReturnToTile : MonoBehaviour
         return distance < distanceThreshold;
     }
 
-
-    private bool IsBeingHeld() {
-        // Check if the object is currently being grabbed
-        return grabInteractable.isSelected;
-    }
     public void Hide() {
         Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("GridField"));
     }
