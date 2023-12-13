@@ -167,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IgnoreMe:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1028
   shakeTargetObject: {fileID: 0}
   raycastDistance: 0.3
   timeToDoDamage: 1.5

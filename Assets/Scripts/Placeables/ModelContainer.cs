@@ -12,6 +12,10 @@ public class ModelContainer : MonoBehaviour
     public ModelSetDelegate onModelSet;
 
 
+    private void Start() {
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+    }
+
     public void SetModel() {
         gameManager.Prefab = turretModel;
         gameManager.PrefabBp = previewModel;

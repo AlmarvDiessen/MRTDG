@@ -8,10 +8,6 @@ using UnityEngine.UI;
 
 public class Base : Entity
 {
-    private int healthPoints = 10;
-    [SerializeField] private GameObject gameOverButtons;
-    [SerializeField] private GameObject playButtons;
-    [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private Image healthBar;
 
     private void Awake() {
@@ -37,9 +33,6 @@ public class Base : Entity
     }
 
     private void ShowGameOverScreen() {
-        if(gameOverButtons != null) {
-            gameOverButtons.SetActive(true);
-            playButtons.SetActive(false);
-        }
+
     }
 }

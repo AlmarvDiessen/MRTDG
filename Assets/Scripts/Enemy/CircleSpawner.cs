@@ -41,7 +41,7 @@ public class CircleSpawner : MonoBehaviour {
     private void Start() {
         waveSize = initialWaveSize;
         //buildButton.SetActive(false);
-        bounds = spawnGround.GetComponent<BoxCollider>().bounds;
+        //bounds = spawnGround.GetComponent<BoxCollider>().bounds;
         startWaveButton.SetActive(false);
     }
 

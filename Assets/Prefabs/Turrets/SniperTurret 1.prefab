@@ -83,7 +83,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   fireRate: 0.5
-  projectilePrefab: {fileID: 5560686538701241314, guid: 2efbbdff9d5b5e14983dfd8cc50ede91, type: 3}
+  projectilePrefab: {fileID: 5560686538701241314, guid: 0906b17444052f54e834a127e9b626e0, type: 3}
   pivot: {fileID: 5236425496565519251}
   shootingPoint: {fileID: 7886509312734017764}
   particleSystem: {fileID: 0}
