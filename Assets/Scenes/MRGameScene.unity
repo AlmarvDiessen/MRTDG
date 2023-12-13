@@ -155,6 +155,18 @@ PrefabInstance:
       propertyPath: m_RaycastMask.m_Bits
       value: 2147483937
       objectReference: {fileID: 0}
+    - target: {fileID: 3507646597774475051, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624146495144937360, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
+      propertyPath: m_LineLength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624146495144937360, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
+      propertyPath: m_MinLineLength
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4816123006425710189, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -174,6 +186,10 @@ PrefabInstance:
     - target: {fileID: 5229750085992761380, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
       propertyPath: m_RequiresOpaqueTextureOption
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362157584874215062, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6880324381277293900, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
       propertyPath: m_RootOrder
@@ -222,6 +238,18 @@ PrefabInstance:
     - target: {fileID: 7025650970629357324, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
       propertyPath: m_HDR
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199674106459537938, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
+      propertyPath: m_ConeCastAngle
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199674106459537938, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
+      propertyPath: m_HitDetectionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199674106459537938, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
+      propertyPath: m_SphereCastRadius
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7199674106459537938, guid: 8b4d02b4e05af714dab2a12548a310f8, type: 3}
       propertyPath: m_MaxRaycastDistance
@@ -1891,6 +1919,7 @@ MonoBehaviour:
   rightHand: {fileID: 191629337}
   _prefab: {fileID: 0}
   _prefabBp: {fileID: 0}
+  _prefabBpHolder: {fileID: 0}
   prefabCost: 0
 --- !u!4 &2065764349
 Transform:
