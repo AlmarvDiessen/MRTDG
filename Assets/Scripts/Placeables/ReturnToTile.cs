@@ -102,7 +102,7 @@ public class ReturnToTile : MonoBehaviour
                     Debug.LogError(e.Message);
                 }
             }
-            return null;
+            return currentTile;
         }
         catch (Exception e) {
             //debugText.text = e.ToString();

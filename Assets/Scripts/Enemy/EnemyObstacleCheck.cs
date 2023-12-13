@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyObstacleCheck : MonoBehaviour
 {
+    public LayerMask IgnoreMe;
     private Health health;
     private Enemy enemy;
 
@@ -24,7 +25,7 @@ public class EnemyObstacleCheck : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, raycastDistance)) {
+        if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance, ~IgnoreMe)) {
             // An obstacle is detected
 
             health = hit.transform.GetComponent<Health>();
