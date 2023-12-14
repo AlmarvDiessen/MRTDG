@@ -26,12 +26,14 @@ public class Tower : Entity
         base.Start();
         animation = gameObject.GetComponent<Animator>();
         occupier = gameObject.GetComponent<ReturnToTile>();
-        occupiedTile = GetCellAtPosition(transform.position).GetComponent<Tile>();
+        //occupiedTile = GetCellAtPosition(transform.position).GetComponent<Tile>();
+        occupiedTile = SrayForGameObject.CheckforObject.GetGameObject(transform.position, Vector3.down, IgnoreMe).GetComponent<Tile>();
 
         healthComponent.Initialize(5, 5);
-        occupier.OriginalPosition = GetCellAtPosition(transform.position).transform.position;
+        occupier.OriginalPosition = occupiedTile.transform.position;
         occupier.CurrentTile = occupiedTile.gameObject;
         occupiedTile.IsBlocked = true;
+
     }
 
 
@@ -70,31 +72,7 @@ public class Tower : Entity
         Gizmos.color = Color.blue;
         Gizmos.DrawRay(shootingPoint.transform.position, shootingPoint.transform.forward * 5f);
     }
-    private GameObject GetCellAtPosition(Vector3 position) {
-        // Perform a raycast or any other method to find the cell at the specified position
-        try {
-            RaycastHit hit;
-            Ray ray = new Ray(position + new Vector3(0, 0.1f, 0), Vector3.down);
-
-            if (Physics.Raycast(ray, out hit, 10f, ~IgnoreMe)) {
-                try {
-                    if (hit.collider.gameObject.GetComponent<Tile>() != null)
-                        return hit.collider.gameObject;
-                    else
-                        return null;
-                }
-                catch (Exception e) {
-                    Debug.LogError(e.Message);
-                }
-            }
-            return null;
-        }
-        catch (Exception e) {
-            //debugText.text = e.ToString();
-            return null;
-        }
-    }
-
+ 
     //void OnTriggerEnter(Collider other) {
     //    Enemy enemy = other.GetComponent<Enemy>();
     //    if (enemy != null) {

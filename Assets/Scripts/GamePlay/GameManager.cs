@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     void Start() {
         Hide();
         StartCoroutine(TurnOnPlanes());
+
     }
 
     private void Update() {
@@ -130,17 +131,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    private void SpawnPrefab() {
-
-    }
-
-
     //Button fuction
     private bool isBuilding = false;
-
-
-
     public void StartBulding() {
         Show();
         if (PrefabBpHolder != null || PrefabBp != PrefabBpHolder) {
@@ -148,27 +140,6 @@ public class GameManager : MonoBehaviour
             PrefabBpHolder = Instantiate(PrefabBp);
         }
         isBuilding = true;
-    }
-
-    //editor version
-    private GameObject CheckTileSelection() {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit)) {
-            Tile tileComponent = hit.collider.GetComponent<Tile>();
-
-            if (tileComponent != null && tileComponent.enabled == true) {
-                return hit.collider.gameObject;
-            }
-            else {
-                return null; // Return null to indicate tile selection outside of the range
-            }
-        }
-        else {
-            //Debug.Log("Clicked on something other than a tile:" + hit.collider.name);
-            return null; // Return null for non-tile objects
-        }
     }
 
     /// <summary>
@@ -233,8 +204,8 @@ public class GameManager : MonoBehaviour
         }
     }
     public IEnumerator TurnOnPlanes() {
-        yield return new WaitForSeconds(1f);
         planeManager.enabled = true;
+        yield return new WaitForSeconds(1f);
     }
 
     private void OnDrawGizmos() {
