@@ -48,12 +48,13 @@ public class SrayForGameObject : MonoBehaviour
     /// <param name="direction"> which direction</param>
     /// <param name="ignoreLayer"> which layer to Ignore</param>
     /// <returns>A GameObject that have colliders</returns>
-    public GameObject GetGameObject(Vector3 position, Vector3 direction, LayerMask ignoreLayer) {
+    public GameObject GetGameObject(Vector3 position, Vector3 direction, LayerMask? ignoreLayer = null) {
         try {
             RaycastHit hit;
             Ray ray = new Ray(position + new Vector3(0, 0.1f, 0), direction);
 
-            if (Physics.Raycast(ray, out hit, 10f, ~ignoreLayer)) {
+            int layerMaskValue = ignoreLayer.HasValue ? ignoreLayer.Value.value : 0; // Use 0 for no raycast layers
+            if (Physics.Raycast(ray, out hit, 30f, ~layerMaskValue)) {
                 try {
                     if (hit.collider.gameObject != null)
                         return hit.collider.gameObject;
