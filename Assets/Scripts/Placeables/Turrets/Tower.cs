@@ -19,6 +19,8 @@ public class Tower : Entity
     [SerializeField] private Transform shootingPoint;
     [SerializeField] private ParticleSystem particleSystem;
     [SerializeField] private Tile occupiedTile;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip bulletSound;
     private Animator animation;
 
 
@@ -47,7 +49,8 @@ public class Tower : Entity
                     particleSystem = clone.GetComponentInChildren<ParticleSystem>();
                     particleSystem.Play();
                     animation.Play("Base Layer.Shoot", 0, 0.25f);
-                    //Debug.Log("Playing anim");
+                    // play audioclip
+                    audioSource.PlayOneShot(bulletSound);
 
                     fireCooldown = 1.0f / fireRate;
                 }
